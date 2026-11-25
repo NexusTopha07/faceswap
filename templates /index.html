@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Face Studio</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="logo" href="/">✦ AI Face Studio</a>
+    <span class="status">AI CREATIVE STUDIO</span>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <span class="eyebrow">CREATIVE VIDEO WORKSPACE</span>
+        <h1>Create something <span>amazing.</span></h1>
+        <p>Upload your media and prepare your AI video project.</p>
+    </section>
+
+    <form id="uploadForm">
+
+        <div class="upload-grid">
+
+            <section class="upload-card">
+                <div class="number">01</div>
+                <h2>Source Photo</h2>
+                <p>Select a face photo you own or have permission to use.</p>
+
+                <label class="upload-area" for="face">
+                    <span class="upload-icon">↑</span>
+                    <strong>Choose Photo</strong>
+                    <small>JPG, PNG, WEBP · Max 10 MB</small>
+                    <input type="file" id="face"
+                           accept=".jpg,.jpeg,.png,.webp" required>
+                </label>
+
+                <img id="facePreview" class="preview" alt="Photo preview">
+                <p id="faceName" class="file-name"></p>
+            </section>
+
+            <section class="upload-card">
+                <div class="number">02</div>
+                <h2>Target Video</h2>
+                <p>Select a video you own or have permission to use.</p>
+
+                <label class="upload-area" for="video">
+                    <span class="upload-icon">▶</span>
+                    <strong>Choose Video</strong>
+                    <small>MP4, WEBM, MOV · Max 100 MB</small>
+                    <input type="file" id="video"
+                           accept=".mp4,.webm,.mov" required>
+                </label>
+
+                <video id="videoPreview" class="preview"
+                       controls></video>
+                <p id="videoName" class="file-name"></p>
+            </section>
+
+        </div>
+
+        <div class="consent">
+            <input type="checkbox" id="consent" required>
+            <label for="consent">
+                I confirm that I have permission from the people
+                depicted to use their images and videos. I will not
+                create non-consensual intimate imagery or deceptive
+                impersonations.
+            </label>
+        </div>
+
+        <button type="submit" id="generateBtn" disabled>
+            Upload & Prepare Project →
+        </button>
+
+    </form>
+
+    <section class="result-card">
+        <h2>Project Status</h2>
+        <p id="status">Your project is waiting for files.</p>
+        <div id="jobDetails"></div>
+    </section>
+
+</main>
+
+<footer>
+    AI Face Studio · Responsible AI Media Creation
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
